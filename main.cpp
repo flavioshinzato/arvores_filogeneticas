@@ -1,6 +1,6 @@
 /**********************************************************
 *
-* Flavio Shinzato
+* Flávio Augusto Müller
 * Yan Uehara
 *
 * Trabalho 2 de Grafos
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
     map<string, int> nametable;
 
     while(true){
-        grafo = new Graph();
+       
         int count = 0;
 
         std::pair<std::map<string, int>::iterator, bool> ret1;
@@ -40,6 +40,7 @@ int main(int argc, char* argv[]){
 
         //Lê a primeira linha
         cin >> num_vertices >> raiz;
+        grafo = new Graph(num_vertices);
         ret1 = nametable.insert(make_pair(raiz, count++));
 
         //Condição parada

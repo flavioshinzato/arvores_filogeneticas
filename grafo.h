@@ -1,6 +1,6 @@
 /**********************************************************
 *
-* Flavio Shinzato
+* Flávio Augusto Müller
 * Yan Uehara
 *
 * Trabalho 2 de Grafos
@@ -12,6 +12,7 @@
 ***********************************************************/
 
 #include <vector>
+#include <list>
 #include <climits>
 
 using namespace std;
@@ -38,8 +39,10 @@ class Edge{
 
 class Graph{
     private:
-        vector< vector<Edge> > grafo;
+        vector< list<Edge*> > grafo;
     public:
+        Graph(int tamanho):grafo(tamanho) {
+        }
         float prim();
         void add_adj(int origem, int destino, float distancia);
 };

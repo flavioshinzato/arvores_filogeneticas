@@ -1,6 +1,6 @@
 /**********************************************************
 *
-* Flavio Shinzato
+* Flávio Augusto Müller
 * Yan Uehara
 *
 * Trabalho 2 de Grafos
@@ -16,7 +16,8 @@
 using namespace std;
 
 void Graph::add_adj(int origem, int destino, float distancia){
-
+	grafo[origem].push_back(new Edge(origem, destino, distancia));
+	grafo[destino].push_back(new Edge(destino, origem, distancia));
 }
 
 float Graph::prim(){

@@ -12,6 +12,8 @@
 ***********************************************************/
 
 #include "grafo.h"
+#include <queue>
+#include <limits.h>
 
 using namespace std;
 
@@ -22,6 +24,38 @@ void Graph::add_adj(int origem, int destino, float distancia){
 
 float Graph::prim(){
     float peso;
+    priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq; 
+    int src = 0;
+
+    vector<int> key(V, INT_MAX);
+ 
+    vector<int> parent(V, -1);
+ 
+    vector<bool> inMST(V, false);
+ 
+	pq.push(make_pair(0, src));
+    key[src] = 0;
+ 	
+ 	while(!pq.empty()) {
+ 		int u = pq.top().second;
+        pq.pop();
+ 
+        inMST[u] = true;
+ 
+        list< Edge >::iterator i;
+        for (i = grafo[u].begin(); i != grafo[u].end(); ++i)
+        {
+            int v = (*i).end;
+            int distancia = (*i).distance;
+ 
+            if (inMST[v] == false && key[v] > distancia)
+            {
+                key[v] = distancia;
+                pq.push(make_pair(key[v], v));
+                parent[v] = u;
+            }
+        }
+    }
 
     return peso;
 }

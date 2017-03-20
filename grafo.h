@@ -40,8 +40,10 @@ class Edge{
 class Graph{
     private:
         vector< list<Edge*> > grafo;
+        int V;
     public:
         Graph(int tamanho):grafo(tamanho) {
+            V = tamanho;
         }
         float prim();
         void add_adj(int origem, int destino, float distancia);

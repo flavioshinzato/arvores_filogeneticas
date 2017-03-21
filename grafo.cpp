@@ -23,11 +23,11 @@ void Graph::add_adj(int origem, int destino, float distancia){
 }
 
 float Graph::prim(){
-    float peso;
+    float dist;
     priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq;
     int src = 0;
 
-    vector<int> key(V, INT_MAX);
+    vector<float> key(V, INT_MAX);
 
     vector<int> parent(V, -1);
 
@@ -46,7 +46,7 @@ float Graph::prim(){
         for (i = grafo[u].begin(); i != grafo[u].end(); ++i)
         {
             int v = (*i)->end;
-            int distancia = (*i)->distance;
+            float distancia = (*i)->distance;
 
             if (inMST[v] == false && key[v] > distancia)
             {
@@ -57,5 +57,10 @@ float Graph::prim(){
         }
     }
 
-    return peso;
+
+	for (int i = 0; i < V; i++) {
+		dist+=key[i];
+	}
+
+    return dist;
 }

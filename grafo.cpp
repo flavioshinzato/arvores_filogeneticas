@@ -29,10 +29,10 @@ float Graph::prim(){
     float dist; //Guarda a distância
 
 	//Fila de prioridade para determinar a menor chave para ser pesquisada
-	//	a fila é um pair<int, int>
+	//	a fila é um pair<float, int>
 	//	o 1o int é o valor de chave do vértice
 	//	o 2o int é o ID do vértice
-	priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq;
+	priority_queue<pair<float, int>, vector<pair<float, int> >, greater<pair<float, int> > > pq;
 
 	int src = 0; //A origem é sempre o vértice de ID 0
 

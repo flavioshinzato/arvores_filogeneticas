@@ -17,7 +17,7 @@
 
 using namespace std;
 
-//Classe Edge para guardar a distância entre dois vértices
+//Classe Edge para representar uma aresta
 class Edge{
 	public:
         int start;
@@ -34,19 +34,18 @@ class Edge{
             this->start = start;
             this->end = end;
             this->distance = distance;
-
         }
 };
 
-//Classe Graph para armanezar o grafo criado a partir das chaves geradas pelas entradas
+//Classe Graph para armanezar o grafo criado a partir dos IDs geradas pelas entradas
 class Graph{
     private:
-        vector< list<Edge*> > grafo;
-        int V;
+        vector< list<Edge*> > grafo; //O grafo é um vetor de listas de adjacências
+        int V; //Número de vértices
     public:
         //Construtor da classe utilizando somente o tamanho do grafo
         Graph(int tamanho):grafo(tamanho) {
-            V = tamanho;
+            V = tamanho; //Atualiza o valor de V, que será utilizado no método prim()
         }
         //Método que chama o algoritmo de Prim
         float prim();

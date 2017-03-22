@@ -6,7 +6,7 @@
 * Trabalho 2 de Grafos
 * Prof. Said Sadique
 *
-* utils.cpp
+* grafo.cpp
 * Arquivo com a definição de classes e funções auxiliares
 *
 ***********************************************************/
@@ -22,6 +22,7 @@ void Graph::add_adj(int origem, int destino, float distancia){
 	grafo[destino].push_back(new Edge(destino, origem, distancia));
 }
 
+//Função para calcular a árvore geradora mínima utlizando o algoritmo de Prim
 float Graph::prim(){
     float dist;
     priority_queue<pair<int, int>, vector<pair<int, int> >, greater<pair<int, int> > > pq;

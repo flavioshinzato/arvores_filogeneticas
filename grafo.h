@@ -6,8 +6,8 @@
 * Trabalho 2 de Grafos
 * Prof. Said Sadique
 *
-* utils.h
-* Arquivo com a definição de classes e funções auxiliares
+* grafo.h
+* Arquivo com a definição de classes e metódos auxiliares
 *
 ***********************************************************/
 
@@ -29,6 +29,7 @@ class Edge{
 			this->distance = INT_MAX;
 		}
 
+        //Contrutor indicando a quais vértices pertence a aresta
         Edge(int start, int end, float distance){
             this->start = start;
             this->end = end;
@@ -37,14 +38,18 @@ class Edge{
         }
 };
 
+//Classe Graph para armanezar o grafo criado a partir das chaves geradas pelas entradas
 class Graph{
     private:
         vector< list<Edge*> > grafo;
         int V;
     public:
+        //Construtor da classe utilizando somente o tamanho do grafo
         Graph(int tamanho):grafo(tamanho) {
             V = tamanho;
         }
+        //Método que chama o algoritmo de Prim
         float prim();
+        //Método para adicionar um vértice adjacente
         void add_adj(int origem, int destino, float distancia);
 };

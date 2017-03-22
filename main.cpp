@@ -65,7 +65,7 @@ int main(int argc, char* argv[]){
             grafo->add_adj(ret1.first->second, ret2.first->second, distancia);
         }
 
-        //Chama o método disjkstra e retorna o resultado
+        //Chama o a função que utiliza o algoritmo de Prim e retorna o resultado
         float dist = grafo->prim();
 
         //Seta a precisão para duas casas decimais

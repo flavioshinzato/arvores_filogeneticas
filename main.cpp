@@ -47,7 +47,7 @@ int main(int argc, char* argv[]){
 
         //Lê a primeira linha
         cin >> num_vertices >> raiz;
-        grafo = new Graph(num_vertices); //Cria um grafo
+        grafo = new Graph(num_vertices + 1); //Cria um grafo
         ret1 = nametable.insert(make_pair(raiz, count)); //Insere a raiz
         count++; //ID++
 
